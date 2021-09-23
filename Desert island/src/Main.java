@@ -10,31 +10,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        String WelcomeMsg = "Hvilken ting ville du helst havde med af disse muligheder?";
-        System.out.println(WelcomeMsg);
-
-        SoutItems(Items, ItemNumber);
-
         AnswerRepeter(Items, ItemCounter);
         System.out.println(Arrays.toString(ItemCounter));
 
         MostPopularItem(ItemCounter);
 
 
-        String popItem = Items[MostPopularItem(ItemCounter)-1];
+        String popItem = Items[MostPopularItem(ItemCounter)];
         String mestPopularItem = "Den mest populare ting er ";
         System.out.println(mestPopularItem + popItem);
 
     }
 
-    public static int MostPopularItem(int[] ItemCounter) {
+    public static int MostPopularItem(int[] ItemCounter) { //Jeg troede det virkede men det viste det sig ikke at gøre da jeg viste det til min bror. Prøvede at fix det man havde ikke tid dsv. Så at finde det mest populære item kan den dsv ikke.
         int temp = 0;
         int indexNumber = 0;
         for (int i = 0; i < ItemCounter.length; i++) {
             if (ItemCounter[i] > temp) {
-                indexNumber = i;
-
+                temp = ItemCounter[i];
+                indexNumber = ItemCounter[i];
             }
         }
         return indexNumber;
@@ -48,6 +42,11 @@ public class Main {
         String HvorMangeMennesker = "Hvor mange mennekser skal svare på dette spørgsmål?";
         System.out.println(HvorMangeMennesker);
         int Rounds = scanner.nextInt();
+
+        String WelcomeMsg = "Hvilken ting ville du helst havde med af disse muligheder?";
+        System.out.println(WelcomeMsg);
+
+        SoutItems(Items, ItemNumber);
 
         while (i < Rounds) {
             String IntastValg = "Intast nummeret på den ting du helt vil havde med";
