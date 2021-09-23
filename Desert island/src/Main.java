@@ -2,11 +2,14 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
+
+    static Scanner scanner = new Scanner(System.in);
+    static String[] Items = {"Flaske vand", "Kasse mad", "Hængekøje", "Kæreste", "Øl", "Telefon", "Wc", "Seng", "Tag over hoved", "Solcreme"};
+    static int[] ItemNumber = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    static int[] ItemCounter = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String[] Items = {"Flaske vand", "Kasse mad", "Hængekøje", "Kæreste", "Øl", "Telefon", "Wc", "Seng", "Tag over hoved", "Solcreme"};
-        int[] ItemNumber = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int[] ItemCounter = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 
         String WelcomeMsg = "Hvilken ting ville du helst havde med af disse muligheder?";
         System.out.println(WelcomeMsg);
@@ -18,16 +21,23 @@ public class Main {
 
         MostPopularItem(ItemCounter);
 
+
+        String popItem = Items[MostPopularItem(ItemCounter)-1];
+        String mestPopularItem = "Den mest populare ting er ";
+        System.out.println(mestPopularItem + popItem);
+
     }
 
-    public static void MostPopularItem(int[] ItemCounter) {
-        for (int i = 10; i > 0; i--) {
-            if (i == 10)
-                for (int j = 0; j < ItemCounter.length; j++) {
+    public static int MostPopularItem(int[] ItemCounter) {
+        int temp = 0;
+        int indexNumber = 0;
+        for (int i = 0; i < ItemCounter.length; i++) {
+            if (ItemCounter[i] > temp) {
+                indexNumber = i;
 
-                }
+            }
         }
-        System.out.println(ItemCounter[9]);
+        return indexNumber;
 
     }
 
